@@ -2,6 +2,7 @@ package com.java.srv.leetcode;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 
 public class MergeIntervalTwo {
     public static void main(String[] args) {
@@ -29,19 +30,16 @@ public class MergeIntervalTwo {
 
       //  Arrays.sort(arr, (a,b) -> Integer.compare(a[0], b[0]));
 
-        int i=0,j=1;
+        LinkedList<int[]> merged = new LinkedList<>();
 
-        while(i<arr.length && j<arr.length) {
-            if(arr[i][1] >= arr[j][0]) {
-                arr[i][1] = Math.max(arr[i][1],arr[j][1]);
-                j++;
-            } else {
-                i++;
-                arr[i][0] = arr[j][0];
-                arr[i][1] = arr[j][1];
-                j++;
+        for(int[] arr1:arr){
+
+            if(merged.isEmpty() || merged.getLast()[1]<arr1[0]){
+                merged.add(arr1);
+            }else{
+                merged.getLast()[1]=Math.max(merged.getLast()[1],arr1[1]);
             }
         }
-        return Arrays.copyOfRange(arr, 0, i+1);
+        return merged.toArray(new int[merged.size()][]);
     }
 }
