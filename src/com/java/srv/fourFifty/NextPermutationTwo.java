@@ -28,6 +28,8 @@ public class NextPermutationTwo {
                 break;
             }
         }
+        System.out.println();
         Arrays.sort(nums, index + 1, nums.length);
+        System.out.println();
     }
 }
