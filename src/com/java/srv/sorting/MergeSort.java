@@ -2,7 +2,7 @@ package com.java.srv.sorting;
 
 /* Java program for Merge Sort */
 class MergeSort {
-    void merge(int arr[], int left, int middle, int right) {
+    public static void merge(int arr[], int left, int middle, int right) {
         int low = middle - left + 1;                    //size of the left subarray
         int high = right - middle;                      //size of the right subarray
 
@@ -53,7 +53,7 @@ class MergeSort {
     }
 
 
-    void mergeSort(int arr[], int left, int right)       //helper function that creates the sub cases for sorting
+    public static void mergeSort(int arr[], int left, int right)       //helper function that creates the sub cases for sorting
     {
         int middle;
         if (left < right) {                             //sort only if the left index is lesser than the right index (meaning that sorting is done)
@@ -61,12 +61,11 @@ class MergeSort {
 
             mergeSort(arr, left, middle);                    //left subarray
             mergeSort(arr, middle + 1, right);               //right subarray
-
             merge(arr, left, middle, right);                //merge the two subarrays
         }
     }
 
-    void display(int arr[])                 //display the array
+    public static void display(int arr[])                 //display the array
     {
         for (int i = 0; i < arr.length; ++i) {
             System.out.print(arr[i] + " ");
@@ -75,9 +74,8 @@ class MergeSort {
 
     public static void main(String args[]) {
         int arr[] = {9, 3, 1, 5, 13, 12};
-        MergeSort ob = new MergeSort();
-        ob.mergeSort(arr, 0, arr.length - 1);
-        ob.display(arr);
+        mergeSort(arr, 0, arr.length - 1);
+        display(arr);
     }
 }
 
