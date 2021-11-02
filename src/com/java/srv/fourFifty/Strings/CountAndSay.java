@@ -2,7 +2,7 @@ package com.java.srv.fourFifty.Strings;
 
 public class CountAndSay {
     public static void main(String[] args) {
-        int n=1;
+        int n=3;
         countAndSay(n);
 
     }
