@@ -18,6 +18,6 @@ public class MaximumSumNonAdjacentElements {
                 dp[1][i] = Math.max(dp[0][i-1], dp[1][i-1]);
             }
         }
-        System.out.println(dp[0][arr.length-1]);
+        System.out.println(Math.max(dp[0][arr.length-1],dp[1][arr.length-1]));
     }
 }
